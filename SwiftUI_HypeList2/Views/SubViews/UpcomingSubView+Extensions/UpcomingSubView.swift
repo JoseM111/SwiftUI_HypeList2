@@ -4,15 +4,44 @@ struct UpcomingSubView: View {
     // MARK: - ™PROPERTIES™
     ///™«««««««««««««««««««««««««««««««««««
     @State var isShowingCreateView: Bool = false
+    //™•••••••••••••••••••••••••••••••••••«
+    var hypedEvents: [HypedEventModel] = []
     ///™«««««««««««««««««««««««««««««««««««
     
     var body: some View {
         
         //.............................
-        Text("Upcoming!")
+        ScrollView {
+            
+            // MARK: -∆  VStack  '''''''''''''''''''''
+            VStack {
+                
+                // MARK: -∆  Text("Upcoming!")  '''''''''''''''''''''
+                if hypedEvents.count == 0 {
+                    //∆..........
+                    Text("Nothing upcoming at the moment...🤷🏾‍♂️\n" +
+                            "Create a new event or checkout the discover tab")
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 8)
+                    //∆..........
+                } else {
+                    //∆..........
+                    ForEach(hypedEvents) { event in
+                        //∆..........
+                        // MARK: -∆  HypedEventTileSubView  '''''''''''''''''''''
+                       HypedEventTileCellSubView(hypedEvent: event)
+                    }
+                }
+                // ∆ END OF: if-else
+                
+            }
+            // ∆ END OF: VStack
             .navigationTitle("Upcoming")
             .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(trailing: newButtonComponent)
+        }
+        /// ∆ END OF PARENT: ScrollView
         //.............................
     }
     // MARK: |||END OF: body|||
@@ -23,11 +52,23 @@ struct UpcomingSubView: View {
 
 // MARK: - Preview
 struct UpcomingSubView_Previews: PreviewProvider {
+    // MARK: - ™TYPE-ALIAS™
+    ///™«««««««««««««««««««««««««««««««««««
+    static let t = HypedEventModel()
+    ///™«««««««««««««««««««««««««««««««««««
     
     static var previews: some View {
         
-        NavigationView {
-            UpcomingSubView()
+        Group {
+            
+            NavigationView {
+                UpcomingSubView(
+                    hypedEvents: [t.TEST_HYPED_EVENT1, t.TEST_HYPED_EVENT2])
+            }
+//            NavigationView {
+//                UpcomingSubView(
+//                    hypedEvents: [])
+//            }
         }
         //.padding(.all, 100)
         //.preferredColorScheme(.dark)

@@ -6,9 +6,8 @@ struct HStackLabelTxtFieldSubView: View {
     let labelTitle, sfSymbolImage: String
     let fgColorForImage: Color
     let txtFieldStr: String
-    let strBindingText: Binding<String>
     //™•••••••••••••••••••••••••••••••••••«
-    
+    let strBindingText: Binding<String>
     ///™«««««««««««««««««««««««««««««««««««
     
     var body: some View {

@@ -55,6 +55,7 @@ func iAmHere(myStr: String) -> some View {
     return Button(action: {  }) {
         //∆..... LABEL .....
         Text("\(myStr)")
+            .fixedSize(horizontal: false, vertical: true)
     }
     .buttonStyle(PrimaryButtonStyle(paddingAll: 20, bgColorAlt: .netflixRed,
                                     bgColor: .netflixRed, w: 200))

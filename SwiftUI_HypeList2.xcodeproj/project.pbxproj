@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,9 @@
 		AB7253962599E49800FF3456 /* LibTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7253952599E49800FF3456 /* LibTools.swift */; };
 		AB72539E2599E4B400FF3456 /* LibModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB72539D2599E4B400FF3456 /* LibModifiers.swift */; };
 		AB7253A32599E4DA00FF3456 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7253A22599E4DA00FF3456 /* ImagePicker.swift */; };
+		AB7253BA259A2F4800FF3456 /* HypedEventTileCellSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7253B9259A2F4800FF3456 /* HypedEventTileCellSubView.swift */; };
+		ABC0BE64259A4B6100E6F822 /* LibTools2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0BE63259A4B6100E6F822 /* LibTools2.swift */; };
+		ABC0BE70259A503A00E6F822 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = ABC0BE6F259A503A00E6F822 /* SwiftDate */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,8 @@
 		AB7253952599E49800FF3456 /* LibTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibTools.swift; sourceTree = "<group>"; };
 		AB72539D2599E4B400FF3456 /* LibModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibModifiers.swift; sourceTree = "<group>"; };
 		AB7253A22599E4DA00FF3456 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		AB7253B9259A2F4800FF3456 /* HypedEventTileCellSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypedEventTileCellSubView.swift; sourceTree = "<group>"; };
+		ABC0BE63259A4B6100E6F822 /* LibTools2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibTools2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC0BE70259A503A00E6F822 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,7 @@
 				AB7253712599E32500FF3456 /* ImagePickerButtonSubView+Extension */,
 				AB72537F2599E39A00FF3456 /* UpcomingSubView+Extensions */,
 				AB72538D2599E41800FF3456 /* HStackLabelTxtFieldSubView.swift */,
+				AB7253B9259A2F4800FF3456 /* HypedEventTileCellSubView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				AB7253952599E49800FF3456 /* LibTools.swift */,
 				AB72539D2599E4B400FF3456 /* LibModifiers.swift */,
 				AB7253A22599E4DA00FF3456 /* ImagePicker.swift */,
+				ABC0BE63259A4B6100E6F822 /* LibTools2.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -259,6 +267,9 @@
 			dependencies = (
 			);
 			name = SwiftUI_HypeList2;
+			packageProductDependencies = (
+				ABC0BE6F259A503A00E6F822 /* SwiftDate */,
+			);
 			productName = SwiftUI_HypeList2;
 			productReference = AB7253232599E1B300FF3456 /* SwiftUI_HypeList2.app */;
 			productType = "com.apple.product-type.application";
@@ -330,6 +341,9 @@
 				Base,
 			);
 			mainGroup = AB72531A2599E1B300FF3456;
+			packageReferences = (
+				ABC0BE6E259A503A00E6F822 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = AB7253242599E1B300FF3456 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -374,11 +388,13 @@
 			files = (
 				AB7253A32599E4DA00FF3456 /* ImagePicker.swift in Sources */,
 				AB72536D2599E30B00FF3456 /* FormLabelView.swift in Sources */,
+				ABC0BE64259A4B6100E6F822 /* LibTools2.swift in Sources */,
 				AB7253652599E2E300FF3456 /* CreateHypedEventView.swift in Sources */,
 				AB72539E2599E4B400FF3456 /* LibModifiers.swift in Sources */,
 				AB7253292599E1B300FF3456 /* MainHypeListTabView.swift in Sources */,
 				AB7253892599E3EE00FF3456 /* ExtUpcomingSubView.swift in Sources */,
 				AB72538E2599E41800FF3456 /* HStackLabelTxtFieldSubView.swift in Sources */,
+				AB7253BA259A2F4800FF3456 /* HypedEventTileCellSubView.swift in Sources */,
 				AB7253962599E49800FF3456 /* LibTools.swift in Sources */,
 				AB72537B2599E37700FF3456 /* Ext_ImagePickerButtonSubView.swift in Sources */,
 				AB7253272599E1B300FF3456 /* SwiftUI_HypeList2App.swift in Sources */,
@@ -704,6 +720,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABC0BE6E259A503A00E6F822 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABC0BE6F259A503A00E6F822 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABC0BE6E259A503A00E6F822 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB72531B2599E1B300FF3456 /* Project object */;
 }
