@@ -3,6 +3,7 @@ import SwiftUI
 struct CreateHypedEventView: View {
     // MARK: - ™PROPERTIES™
     ///™«««««««««««««««««««««««««««««««««««
+    @Environment(\.presentationMode) var mode
     @StateObject var hypeEvent = HypedEventModel()
     @State private var showTime: Bool = false
     //™•••••••••••••••••••••••••••••••••••«
@@ -12,68 +13,78 @@ struct CreateHypedEventView: View {
     var body: some View {
         
         //.............................
-        Form {
+        NavigationView {
             
-            // MARK: -∆ Label(Title) * Input(Family Vacation) '''''''''''''''''''''
-            Section {
+            Form {
                 
-                HStackLabelTxtFieldSubView(
-                    labelTitle: "Title", sfSymbolImage: "keyboard",
-                    fgColorForImage: .netflixRed,
-                    txtFieldStr: "",
-                    strBindingText: $hypeEvent.title)
-            }
-            // ∆ END OF: Section
-            
-            // MARK: -∆ Label(Date) * Date-Picker  '''''''''''''''''''''
-            Section {
-                //∆..........
-                DatePicker("Date", selection: $hypeEvent.date,
-                           displayedComponents: showTime ? arrayOfDateHrsMin : [.date])
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                
-                Toggle(isOn: $showTime) {
-                    //∆..........
-                    FormLabelView(text: "Date",
-                                  sfSymbolImage: "calendar",
-                                  fgColorForImage: .twitterBlue2,
-                                  imageFrameBgColor: .white)
+                // MARK: -∆ Label(Title) * Input(Family Vacation) '''''''''''''''''''''
+                Section {
+                    
+                    HStackLabelTxtFieldSubView(
+                        labelTitle: "Title", sfSymbolImage: "keyboard",
+                        fgColorForImage: .netflixRed,
+                        txtFieldStr: "",
+                        strBindingText: $hypeEvent.title)
                 }
-            }
-            // ∆ END OF: Section
-            
-            // MARK: -∆  Button(Custom-Image-Picker)  '''''''''''''''''''''
-            Section {
+                // ∆ END OF: Section
+                //∆.....................................................
                 
-                ImagePickerButtonSubView(hypeEvent: hypeEvent)
-            }
-            // ∆ END OF: Section
-            
-            // MARK: -∆  ColorPicker  '''''''''''''''''''''
-            Section {
-                //∆..........
-                ColorPicker(selection: $hypeEvent.color) {
+                // MARK: -∆ Label(Date) * Date-Picker  '''''''''''''''''''''
+                Section {
                     //∆..........
-                    FormLabelView(text: "Color Picker",
-                                  sfSymbolImage: "eyedropper",
-                                  fgColorForImage: .yellow,
-                                  imageFrameBgColor: .white)
+                    DatePicker("Date", selection: $hypeEvent.date,
+                               displayedComponents: showTime ? arrayOfDateHrsMin : [.date])
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                    
+                    Toggle(isOn: $showTime) {
+                        //∆..........
+                        FormLabelView(text: "Date",
+                                      sfSymbolImage: "calendar",
+                                      fgColorForImage: .twitterBlue2,
+                                      imageFrameBgColor: .white)
+                    }
                 }
+                // ∆ END OF: Section
+                //∆.....................................................
+                
+                // MARK: -∆  Button(Custom-Image-Picker)  '''''''''''''''''''''
+                Section {
+                    
+                    ImagePickerButtonSubView(hypeEvent: hypeEvent)
+                }
+                // ∆ END OF: Section
+                
+                // MARK: -∆  ColorPicker  '''''''''''''''''''''
+                Section {
+                    //∆..........
+                    ColorPicker(selection: $hypeEvent.color) {
+                        //∆..........
+                        FormLabelView(text: "Color Picker",
+                                      sfSymbolImage: "eyedropper",
+                                      fgColorForImage: .yellow,
+                                      imageFrameBgColor: .white)
+                    }
+                }
+                // ∆ END OF: Section
+                //∆.....................................................
+                
+                // MARK: -∆ Label(URL) * Input(URL)  '''''''''''''''''''''
+                Section {
+                    //∆..........
+                    HStackLabelTxtFieldSubView(
+                        labelTitle: "URL", sfSymbolImage: "link",
+                        fgColorForImage: .neonOrange,
+                        txtFieldStr: "Website",
+                        strBindingText:  $hypeEvent.url)
+                }
+                // ∆ END OF: Section
+                //∆.....................................................
             }
-            // ∆ END OF: Section
-            
-            // MARK: -∆ Label(URL) * Input(URL)  '''''''''''''''''''''
-            Section {
-                //∆..........
-                HStackLabelTxtFieldSubView(
-                    labelTitle: "URL", sfSymbolImage: "link",
-                    fgColorForImage: .neonOrange,
-                    txtFieldStr: "Website",
-                    strBindingText:  $hypeEvent.url)
-            }
-            // ∆ END OF: Section
+            // ∆ END OF: Form
+            .navigationBarItems(leading: cancelBtnComponent, trailing: doneBtnComponent)
+            .navigationTitle("Create")
         }
-        // MARK: ||END__PARENT-Form||
+        // MARK: ||END__PARENT-NavigationView||
         //.............................
     }
     // MARK: |||END OF: body|||
@@ -97,3 +108,46 @@ struct CreateHypedEventView_Previews: PreviewProvider {
 }
 /// @•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
+
+/// @•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// MARK: -∆  EXTENSION OF: [( CreateHypedEventView )] •••••••••
+
+extension CreateHypedEventView {
+    
+    // MARK: @------- [Computed some-View Properties] -------
+    
+    // ™ œœœœœ[ cancelBtnComponent ]œœœœœœœœœœœœœœœ
+    var cancelBtnComponent: some View {
+        //∆..........
+        /// mode.wrappedValue.dismiss(): Will `dismiss`
+        /// the sheet when the `button` is `pressed`
+        Button(action: { mode.wrappedValue.dismiss() }) {
+            //∆..... LABEL .....
+            Text("Cancel")
+        }
+        
+        
+    }
+    /// ∆ END OF: cancelBtnComponent
+    
+    // ™ œœœœœ[ doneBtnComponent ]œœœœœœœœœœœœœœœ
+    var doneBtnComponent: some View {
+        //∆..........
+        Button(action: {
+            /// ™ Adding a new event to the app
+            DataController.shared.hypedEvents.append(hypeEvent)
+            /// ™ Once the new event is added, it will dismiss the sheet
+            mode.wrappedValue.dismiss()
+        }) {
+            //∆..... LABEL .....
+            Text("Done")
+        }
+        
+        
+    }
+    /// ∆ END OF: doneBtnComponent
+    
+}
+// MARK: END OF: CreateHypedEventView
+
+/// @•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••

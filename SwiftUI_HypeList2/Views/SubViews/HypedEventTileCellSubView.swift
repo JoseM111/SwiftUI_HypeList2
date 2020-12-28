@@ -19,13 +19,14 @@ struct HypedEventTileCellSubView: View {
             if hypedEvent.imageComponent() != nil {
                 //∆..........
                 hypedEvent.imageComponent()?
-                    .imageFormattedFrame(.fit, w: FULL_UI_SCREEN_WIDTH, h: 220)
+                    .imageFormattedFrame(.fit, w: FULL_UI_SCREEN_WIDTH,
+                                         h: 220)
                 //∆..........
             }
             // ∆ END OF: if-statement
             
             // MARK: -∆  Rectangle-Line  '''''''''''''''''''''
-            Rectangle().foregroundColor(.netflixRed)
+            Rectangle().foregroundColor(hypedEvent.color)
                 .frame(height: 15)
             
             // MARK: -∆  Title  '''''''''''''''''''''

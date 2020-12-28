@@ -5,7 +5,7 @@ struct UpcomingSubView: View {
     ///™«««««««««««««««««««««««««««««««««««
     @State var isShowingCreateView: Bool = false
     //™•••••••••••••••••••••••••••••••••••«
-    var hypedEvents: [HypedEventModel] = []
+    @ObservedObject var data = DataController.shared
     ///™«««««««««««««««««««««««««««««««««««
     
     var body: some View {
@@ -17,7 +17,7 @@ struct UpcomingSubView: View {
             VStack {
                 
                 // MARK: -∆  Text("Upcoming!")  '''''''''''''''''''''
-                if hypedEvents.count == 0 {
+                if data.hypedEvents.count == 0 {
                     //∆..........
                     Text("Nothing upcoming at the moment...🤷🏾‍♂️\n" +
                             "Create a new event or checkout the discover tab")
@@ -27,10 +27,11 @@ struct UpcomingSubView: View {
                     //∆..........
                 } else {
                     //∆..........
-                    ForEach(hypedEvents) { event in
+                    ForEach(data.hypedEvents) { event in
                         //∆..........
                         // MARK: -∆  HypedEventTileSubView  '''''''''''''''''''''
                        HypedEventTileCellSubView(hypedEvent: event)
+                        .padding(.top, 15)
                     }
                 }
                 // ∆ END OF: if-else
@@ -52,7 +53,6 @@ struct UpcomingSubView: View {
 
 // MARK: - Preview
 struct UpcomingSubView_Previews: PreviewProvider {
-    // MARK: - ™TYPE-ALIAS™
     ///™«««««««««««««««««««««««««««««««««««
     static let t = HypedEventModel()
     ///™«««««««««««««««««««««««««««««««««««
@@ -62,8 +62,7 @@ struct UpcomingSubView_Previews: PreviewProvider {
         Group {
             
             NavigationView {
-                UpcomingSubView(
-                    hypedEvents: [t.TEST_HYPED_EVENT1, t.TEST_HYPED_EVENT2])
+                UpcomingSubView(data: DataController.shared)
             }
 //            NavigationView {
 //                UpcomingSubView(

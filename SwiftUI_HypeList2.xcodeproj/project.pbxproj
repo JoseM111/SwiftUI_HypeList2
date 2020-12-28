@@ -27,6 +27,7 @@
 		AB7253BA259A2F4800FF3456 /* HypedEventTileCellSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7253B9259A2F4800FF3456 /* HypedEventTileCellSubView.swift */; };
 		ABC0BE64259A4B6100E6F822 /* LibTools2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0BE63259A4B6100E6F822 /* LibTools2.swift */; };
 		ABC0BE70259A503A00E6F822 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = ABC0BE6F259A503A00E6F822 /* SwiftDate */; };
+		ABC0BE7B259A5FD000E6F822 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC0BE7A259A5FD000E6F822 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		AB7253A22599E4DA00FF3456 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		AB7253B9259A2F4800FF3456 /* HypedEventTileCellSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypedEventTileCellSubView.swift; sourceTree = "<group>"; };
 		ABC0BE63259A4B6100E6F822 /* LibTools2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibTools2.swift; sourceTree = "<group>"; };
+		ABC0BE7A259A5FD000E6F822 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 		AB7253932599E45800FF3456 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ABC0BE7A259A5FD000E6F822 /* DataController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				AB7253A32599E4DA00FF3456 /* ImagePicker.swift in Sources */,
 				AB72536D2599E30B00FF3456 /* FormLabelView.swift in Sources */,
 				ABC0BE64259A4B6100E6F822 /* LibTools2.swift in Sources */,
+				ABC0BE7B259A5FD000E6F822 /* DataController.swift in Sources */,
 				AB7253652599E2E300FF3456 /* CreateHypedEventView.swift in Sources */,
 				AB72539E2599E4B400FF3456 /* LibModifiers.swift in Sources */,
 				AB7253292599E1B300FF3456 /* MainHypeListTabView.swift in Sources */,
